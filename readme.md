@@ -1,8 +1,8 @@
-# Funktionaalinen JavaScript
+# Node.js ja funktionaalinen ohjelmointityyli
 
 Tämän viikon tehtävässä harjoitellaan funktionaalista ohjelmointia ja JavaScriptin taulukkofunktioiden käyttöä Node.js-ympäristössä. Tehtävänä on lukea kahdesta erillisestä JSON-tiedostosta käyttäjiä ja postauksia, ja yhdistellä käyttäjät niitä vastaaviin postauksiin kahdella eri tavalla.
 
-**Tehtävä tehdään Node.js ympäristössä Node.js:n standardikirjastolla ilman erillisiä sovelluskehyksiä tai npm-paketteja.**
+**Tehtävä tehdään Node.js-ympäristössä Node.js:n standardikirjastolla ilman erillisiä sovelluskehyksiä tai npm-paketteja.**
 
 
 ## Harjoitusten kloonaaminen
