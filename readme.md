@@ -94,12 +94,12 @@ Ervin Howell
 
 Arvioinnin kannalta tulosteen tyylillä ei ole painoarvoa, kunhan et muuta nimiä, otsikoita tai niiden järjestystä.
 
-Tehtävän ratkaiseminen perinteisesti sisäkkäisillä toistorakenteilla oikeuttaa tästä osasta 2 pisteeseen. 3 pistettä edellyttää, että ratkaisussa on hyödynnetty JavaScriptin `map`, `filter` tai `reduce` operaatioita.
+Tehtävän ratkaiseminen perinteisesti sisäkkäisillä toistorakenteilla oikeuttaa tästä osasta 2 pisteeseen. 3 pistettä edellyttää, että ratkaisussa on hyödynnetty JavaScriptin `map`-, `filter`- tai `reduce`-operaatioita.
 
 
 ## Osa 2: JSON-rakenteen muodostaminen ja tallentaminen tiedostoon (2 pistettä)
 
-Arvosanatavoitteeseen 5 sinun tulee kirjoittaa edellisen lisäksi toinen skripti `users-and-posts-file.js`, joka esittää datan sisäkkäisinä JSON-tietorakenteina siten, että kunkin käyttäjän kirjoittamat postaukset ovat koottu käyttäjän yhteyteen omaksi taulukokseen. Muodostettun tietorakenne tulee tallentaa uuteen tiedostoon `output.json`.
+Arvosanatavoitteeseen 5 sinun tulee kirjoittaa edellisen lisäksi toinen skripti `users-and-posts-file.js`, joka esittää datan sisäkkäisinä JSON-tietorakenteina siten, että kunkin käyttäjän kirjoittamat postaukset ovat koottu käyttäjän yhteyteen omaksi taulukokseen. Muodostettu JSON tulee tallentaa kokonaisuudessaan uuteen tiedostoon nimeltä `output.json`.
 
 Yksittäisen käyttäjän osalta lopputulos voi olla esimerkiksi seuraavan kaltainen:
 
@@ -148,13 +148,13 @@ Yksittäisen käyttäjän osalta lopputulos voi olla esimerkiksi seuraavan kalta
     },
     
     // + loput käyttäjät...
-
 ]
 ```
 
 JavaScript-tietorakenteen muuttaminen merkkijonoksi onnistuu esimerkiksi [JSON.stringify-metodilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify):
 
 ```js
+// muodostetaan merkkijono, jossa sisennys on 4 merkkiä:
 let jsonString = JSON.stringify(omaData, null, 4);
 ```
 
