@@ -104,17 +104,20 @@ Arvioinnin kannalta tulosteen tyylillä ei ole painoarvoa, kunhan et muuta nimi�
 
 Tehtävän ratkaiseminen perinteisesti sisäkkäisillä toistorakenteilla tuottaa tehtävästä 2 pistettä. Kolmas piste edellyttää, että ratkaisussa on hyödynnetty JavaScriptin `map`-, `filter`-, `forEach`- tai `reduce`-operaatioita. Lisäpisteen voit saada myös, mikäli käytät näitä operaatioita tehtävän toisessa osassa.
 
-
+* [map() (MDN Web Docs)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+* [filter() (MDN Web Docs)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+* [forEach() (MDN Web Docs)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+* [reduce() (MDN Web Docs)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
 
 ## Osa 2: JSON-rakenteen muodostaminen ja tallentaminen tiedostoon (2 pistettä)
 
-Arvosanatavoitteeseen 5 sinun tulee kirjoittaa edellisen lisäksi toinen skripti `users-and-posts-file.js`, joka esittää datan sisäkkäisinä JSON-tietorakenteina siten, että kunkin käyttäjän kirjoittamat postaukset ovat koottu käyttäjän yhteyteen omaksi taulukokseen. Muodostettu JSON tulee tallentaa kokonaisuudessaan uuteen tiedostoon nimeltä `output.json`.
+Kirjoittaa edellisen lisäksi toinen skripti `users-and-posts-file.js`, joka esittää saman datan sisäkkäisinä JSON-tietorakenteina siten, että kunkin käyttäjän kirjoittamat postaukset ovat koottu käyttäjän yhteyteen omaksi taulukokseen. Ohjelmasi tulee tallentaa muodostettu JSON-rakenne uuteen tiedostoon nimeltä `output.json`. Ratkaisua ei siis tulosteta, vaan se kirjoitetaan tiedostoon.
 
 Yksittäisen käyttäjän osalta lopputulos voi olla esimerkiksi seuraavan kaltainen:
 
 ```
-$ node users-and-posts-file.js  # Suoritetaan skripti
-$ cat output.json               # Tarkastetaan tulos
+$ node users-and-posts-file.js     # suoritetaan skripti
+$ cat output.json                  # tarkastetaan tulos
 
 [
     {
@@ -160,6 +163,7 @@ $ cat output.json               # Tarkastetaan tulos
 
 Yllä olevasta esimerkistä on tilan säästämiseksi jätetty pois valtaosa käyttäjistä ja postauksista.
 
+
 ### JSON-rakenne merkkijonoksi
 
 JavaScript-tietorakenteen muuttaminen merkkijonoksi onnistuu esimerkiksi [JSON.stringify-metodilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify):
@@ -180,7 +184,6 @@ fs.writeFileSync('output.json', jsonString);
 ```
 
 
-
 ## Älä käytä ulkoisia kirjastoja
 
 Näiden tehtävien ratkaisemiseksi **et tarvitse ulkoisia kirjastoja** tai `npm`-komentoa. Pelkkä Node.js riittää.
@@ -197,6 +200,7 @@ Käyttäjien ja heidän postauksiensa yhdistämiseksi yksi lähestymistapa on k�
 Käyttäjäkohtaiset postaustaulukot voidaan puolestaan rakentaa `filter`-metodin avulla, suodattamalla kaikista postauksista ne, joiden `userId` vastaa kyseisen käyttäjän `id`:tä.
 
 Voit kysellä lisää vinkkejä kurssin keskustelukanavalla.
+
 
 ## Automaattisten testien suorittaminen
 
