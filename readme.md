@@ -1,6 +1,6 @@
 # Funktionaalinen JavaScript
 
-Tämän viikon tehtävässä harjoitellaan tunnilla esitettyjen ohjelmointitapojen hyödyntämistä. Tehtävänä on lukea kahdesta erillisestä JSON-tiedostosta käyttäjiä ja postauksia, ja yhdistellä käyttäjät niitä vastaaviin postauksiin.
+Tämän viikon tehtävässä harjoitellaan funktionaalista ohjelmointia ja JavaScriptin taulukkofunktioiden käyttöä Node.js-ympäristössä. Tehtävänä on lukea kahdesta erillisestä JSON-tiedostosta käyttäjiä ja postauksia, ja yhdistellä käyttäjät niitä vastaaviin postauksiin kahdella eri tavalla.
 
 **Tehtävä tehdään Node.js ympäristössä Node.js:n standardikirjastolla ilman erillisiä sovelluskehyksiä tai npm-paketteja.**
 
@@ -9,7 +9,7 @@ Tämän viikon tehtävässä harjoitellaan tunnilla esitettyjen ohjelmointitapoj
 
 Kun olet hyväksynyt tämän tehtävän GitHub classroomissa ja saanut repositoriosta henkilökohtaisen kopion, kloonaa se itsellesi `git clone` -komennolla. Siirry sen jälkeen VS Codeen editoimaan tiedostoja.
 
-Kloonatessasi repositoriota varmista, että Git-osoitteen lopussa on oma GitHub-käyttäjänimesi. Jos käyttäjänimesi puuttuu osoitteesta, kyseessä ei ole henkilökohtainen kopiosi tehtävästä. Luo tässä tapauksessa oma repositorio tämän linkin kautta: **TODO**.
+Kloonatessasi repositoriota varmista, että Git-osoitteen lopussa on oma GitHub-käyttäjänimesi. Jos käyttäjänimesi puuttuu osoitteesta, kyseessä ei ole henkilökohtainen kopiosi tehtävästä. Luo tässä tapauksessa oma repositorio tämän linkin kautta: [https://classroom.github.com/a/1aFSsXE1](https://classroom.github.com/a/1aFSsXE1).
 
 
 ## Tehtävän data
@@ -24,11 +24,11 @@ Tässä tehtävässä käytetään staattista JSON-muotoista dataa JSON Placehol
 >
 > https://jsonplaceholder.typicode.com/
 
-Tämän tehtävän kannalta riittää, että luet käyttäjät ja postaukset paikallisesta tiedostosta. Tietoja ei siis tarvitse hakea verkosta JavaScript-koodissa.
+Tehtävän kannalta riittää, että luet käyttäjät ja postaukset paikallisesta tiedostosta. Tietoja ei siis tarvitse hakea verkosta JavaScript-koodissa.
 
 Voit tallentaa tehtävässä tarvittavat JSON-tiedostot itsellesi seuraavista kahdesta osoitteesta:
 
-* **Käyttäjät**
+* **Users**
 
     Selaimella: https://jsonplaceholder.typicode.com/users
 
@@ -37,7 +37,7 @@ Voit tallentaa tehtävässä tarvittavat JSON-tiedostot itsellesi seuraavista ka
     curl https://jsonplaceholder.typicode.com/users > users.json
     ```
 
-* **Postaukset**
+* **Posts**
 
     Selaimella: https://jsonplaceholder.typicode.com/posts
 
@@ -46,7 +46,9 @@ Voit tallentaa tehtävässä tarvittavat JSON-tiedostot itsellesi seuraavista ka
     curl https://jsonplaceholder.typicode.com/posts > posts.json
     ```
 
-Muista lisätä tallentamasi JSON-tiedostot myös versionhallintaan ennen tehtävän lähettämistä.
+💡 Muista lisätä tallentamasi JSON-tiedostot myös versionhallintaan ennen tehtävän lähettämistä.
+
+### JSON-tietojen lukeminen Node.js:llä
 
 JSON-muotoinen data voidaan lukea Node.js-sovellukseen [require](https://nodejs.org/en/knowledge/getting-started/what-is-require/)-funktiolla esimerkiksi seuraavasti:
 
@@ -54,16 +56,22 @@ JSON-muotoinen data voidaan lukea Node.js-sovellukseen [require](https://nodejs.
 let users = require('./users.json');
 ```
 
+### Suoritusympäristö
+
+GitHub classroomissa on [kirjoitushetkellä käytössä Node.js versio 16.13.2](https://github.com/actions/virtual-environments/blob/ubuntu20/20220131.1/images/linux/Ubuntu2004-Readme.md). Ratkaisusi tulee toimia sillä tai uudemmilla versioilla komennolla `node skriptin-nimi.js` ilman npm-riippuvuuksia tai komentoriviparametreja.
+
 
 ## Osa 1: tietojen yhdistäminen ja suodattaminen (3 pistettä)
 
-Tehtävän 1. osassa sinun tulee kirjoittaa Node.js-skripti `users-and-posts.js`, joka lukee JSON-tiedostot ja tulostaa niissä olevien käyttäjien nimet (`name`) sekä postausten otsikot (`title`).
+Tehtävän 1. osassa sinun tulee toteuttaa Node.js-skripti `users-and-posts.js`, joka lukee JSON-tiedostot ja tulostaa niissä olevien käyttäjien nimet (`name`) sekä postausten otsikot (`title`).
 
 Tiedot tulee tulostaa siten, että kunkin käyttäjän nimen tulostamisen jälkeen tulostetaan kaikkien kyseisen käyttäjän postausten otsikot. Postaukset voidaan yhdistää käyttäjiin vertailemalla `post`-tietomallin `userId`-attribuutteja `user`-tietomallin `id`-attribuuttiin.
 
 Lopputulos voi näyttää esimerkiksi seuraavalta:
 
 ```
+$ node users-and-posts.js
+
 Leanne Graham
 - sunt aut facere repellat provident occaecati excepturi optio reprehenderit
 - qui est esse
@@ -94,7 +102,8 @@ Ervin Howell
 
 Arvioinnin kannalta tulosteen tyylillä ei ole painoarvoa, kunhan et muuta nimiä, otsikoita tai niiden järjestystä.
 
-Tehtävän ratkaiseminen perinteisesti sisäkkäisillä toistorakenteilla oikeuttaa tästä osasta 2 pisteeseen. 3 pistettä edellyttää, että ratkaisussa on hyödynnetty JavaScriptin `map`-, `filter`- tai `reduce`-operaatioita.
+Tehtävän ratkaiseminen perinteisesti sisäkkäisillä toistorakenteilla tuottaa tehtävästä 2 pistettä. Kolmas piste edellyttää, että ratkaisussa on hyödynnetty JavaScriptin `map`-, `filter`-, `forEach`- tai `reduce`-operaatioita. Lisäpisteen voit saada myös, mikäli käytät näitä operaatioita tehtävän toisessa osassa.
+
 
 
 ## Osa 2: JSON-rakenteen muodostaminen ja tallentaminen tiedostoon (2 pistettä)
@@ -103,7 +112,10 @@ Arvosanatavoitteeseen 5 sinun tulee kirjoittaa edellisen lisäksi toinen skripti
 
 Yksittäisen käyttäjän osalta lopputulos voi olla esimerkiksi seuraavan kaltainen:
 
-```js
+```
+$ node users-and-posts-file.js  # Suoritetaan skripti
+$ cat output.json               # Tarkastetaan tulos
+
 [
     {
         "id": 1,
@@ -128,7 +140,6 @@ Yksittäisen käyttäjän osalta lopputulos voi olla esimerkiksi seuraavan kalta
             "bs": "harness real-time e-markets"
         },
 
-        // käyttäjälle lisätty uusi `posts`-taulukko sisältää kaikki kyseisen käyttäjän postaukset:
         "posts": [
             {
                 "userId": 1,
@@ -141,15 +152,15 @@ Yksittäisen käyttäjän osalta lopputulos voi olla esimerkiksi seuraavan kalta
                 "id": 2,
                 "title": "qui est esse",
                 "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
-            },
-            
-            // + loput saman käyttäjän postaukset täällä...
+            }
         ]
-    },
-    
-    // + loput käyttäjät...
+    }
 ]
 ```
+
+Yllä olevasta esimerkistä on tilan säästämiseksi jätetty pois valtaosa käyttäjistä ja postauksista.
+
+### JSON-rakenne merkkijonoksi
 
 JavaScript-tietorakenteen muuttaminen merkkijonoksi onnistuu esimerkiksi [JSON.stringify-metodilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify):
 
@@ -158,7 +169,9 @@ JavaScript-tietorakenteen muuttaminen merkkijonoksi onnistuu esimerkiksi [JSON.s
 let jsonString = JSON.stringify(omaData, null, 4);
 ```
 
-Muodostettu JSON-merkkijono tulee tallentaa `output.json`-tiedostoon esimerkiksi Node.js:n fs-moduulin [writeFileSync](https://stackoverflow.com/a/46356040)-metodilla:
+### Merkkijonon tallentaminen tiedostoon
+
+Muodostettu JSON-merkkijono tulee tallentaa `output.json`-tiedostoon esimerkiksi Node.js:n fs-moduulin `writeFileSync`-metodilla [(stackoverflow.com)](https://stackoverflow.com/a/46356040):
 
 ```js
 const fs = require('fs');
@@ -172,7 +185,9 @@ fs.writeFileSync('output.json', jsonString);
 
 Näiden tehtävien ratkaisemiseksi **et tarvitse ulkoisia kirjastoja** tai `npm`-komentoa. Pelkkä Node.js riittää.
 
-Ratkaisusi suoritetaan GitHub classroom -palvelussa komennoilla `node users-and-posts.js` ja `node users-and-posts-file.js`. Mahdollisia npm-riippuvuuksia ei asenneta, vaikka määrittelisit projektiin package.json-tiedoston.
+Ratkaisusi suoritetaan GitHub classroom -palvelussa komennoilla `node users-and-posts.js` ja `node users-and-posts-file.js`. 
+
+⚠ Mahdollisia npm-riippuvuuksia ei asenneta, vaikka määrittelisit projektiin `package.json`-tiedoston.
 
 
 ## Vinkit datan käsittelyyn
@@ -183,9 +198,26 @@ Käyttäjäkohtaiset postaustaulukot voidaan puolestaan rakentaa `filter`-metodi
 
 Voit kysellä lisää vinkkejä kurssin keskustelukanavalla.
 
-----
+## Automaattisten testien suorittaminen
+
+GitHub classroom -palvelun käyttämät testit löytyvät tästä projektista `.test`-nimisestä piilohakemistosta. Jos haluat suorittaa testit paikallisesti ennen tehtävän palauttamista, voit tehdä sen ajamalla seuraavat komennot:
+
+```
+# Testityökalun (Jest) asennus:
+npm install --prefix .test
+
+# 1. osan testit:
+npm test -t users-and-posts.test.js --prefix .test
+
+# 2. osan testit:
+npm test -t users-and-posts-file.test.js --prefix .test
+```
+
+---
 
 # Lisenssit ja tekijänoikeudet
+
+Tämän oppimateriaalin on kehittänyt Teemu Havulinna ja se on lisensoitu [Creative Commons BY-NC-SA -lisenssillä](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 ## JSONPlaceholder
 
