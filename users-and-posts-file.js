@@ -1,0 +1,1 @@
+// Kirjoita 2. osan ratkaisusi tänne
