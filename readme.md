@@ -1,6 +1,6 @@
 # Node.js ja funktionaalinen ohjelmointityyli
 
-Tämän viikon tehtävässä harjoitellaan funktionaalista ohjelmointia ja JavaScriptin taulukkofunktioiden käyttöä Node.js-ympäristössä. Tehtävänä on lukea kahdesta erillisestä JSON-tiedostosta käyttäjiä ja postauksia, ja yhdistellä käyttäjät niitä vastaaviin postauksiin kahdella eri tavalla.
+Tässä tehtävässä harjoitellaan funktionaalista ohjelmointia ja JavaScriptin taulukkofunktioiden käyttöä Node.js-ympäristössä. Tehtävänä on lukea kahdesta erillisestä JSON-tiedostosta käyttäjiä ja postauksia, ja yhdistellä käyttäjät niitä vastaaviin postauksiin kahdella eri tavalla.
 
 **Tehtävä tehdään Node.js-ympäristössä Node.js:n standardikirjastolla ilman erillisiä sovelluskehyksiä tai npm-paketteja.**
 
@@ -9,7 +9,7 @@ Tämän viikon tehtävässä harjoitellaan funktionaalista ohjelmointia ja JavaS
 
 Kun olet hyväksynyt tämän tehtävän GitHub classroomissa ja saanut repositoriosta henkilökohtaisen kopion, kloonaa se itsellesi `git clone` -komennolla. Siirry sen jälkeen VS Codeen editoimaan tiedostoja.
 
-Kloonatessasi repositoriota varmista, että Git-osoitteen lopussa on oma GitHub-käyttäjänimesi. Jos käyttäjänimesi puuttuu osoitteesta, kyseessä ei ole henkilökohtainen kopiosi tehtävästä. Luo tässä tapauksessa oma repositorio tämän linkin kautta: [https://classroom.github.com/a/1aFSsXE1](https://classroom.github.com/a/1aFSsXE1).
+Kloonatessasi repositoriota varmista, että Git-osoitteen lopussa on oma GitHub-käyttäjänimesi. Jos käyttäjänimesi puuttuu osoitteesta, kyseessä ei ole henkilökohtainen kopiosi tehtävästä. Luo tässä tapauksessa oma tehtävärepositoriosi Teams-tehtävästä löytyvän linkin kautta.
 
 
 ## Tehtävän data
